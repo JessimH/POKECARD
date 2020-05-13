@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        input {
+            width: 100%;
+        }
+    }
+}
+
+.cardList {
+    margin: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 50px;
+    width: 100%;
+}
+
+.pokecard {
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+    a {
+        text-decoration: none;
+    }
+}
+
+.pokecard:hover {
+    transform: scale(1.1);
+}

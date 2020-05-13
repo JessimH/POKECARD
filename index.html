@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.scss">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    <script src="assets/js/app.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="nav">
+            <a class="navbar-brand" href="index.html">POKECARD</a>
+            <form>
+                <input id="inputValue" type="text" @keyup.enter="search" placeholder="chercher une carte (version anglaise)">
+                <button id="search" type="submit" @click="search" @keyup.enter="search">FIND</button>
+            </form>
+        </nav>
+
+        <section v-if="newCards.length != 0">
+            <div class="row justify-content-center ">
+                <div v-for="cards of newCards" class="cardList">
+                    <div v-for="card of cards ">
+                        <div class="pokecard" :key="`card-${cards.id}`">
+                            <a href="# ">
+                                <div>
+                                    <p>Pokedex {{card.nationalPokedexNumber}}:</p>
+                                    <h5 class="text-center">{{card.name}}</h5>
+                                </div>
+                                <img :src="`${card.imageUrl}`" class="card-img-top" :alt="`${card.name}`">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section v-else>
+            <div class="row justify-content-center ">
+                <div v-for="card of cards" class="cardList">
+                    <div v-for="oneCard of card ">
+                        <div class="pokecard" :key="`oneCard-${card.id}`">
+                            <a href="# ">
+                                <div>
+                                    <p>Pokedex {{oneCard.nationalPokedexNumber}}:</p>
+                                    <h5 class="text-center">{{oneCard.name}}</h5>
+                                </div>
+                                <img :src="`${oneCard.imageUrl}`" class="card-img-top" :alt="`${oneCard.name}`">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</body>
+
+</html>
