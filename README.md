@@ -1,5 +1,5 @@
 # POKECARD
-VueJs app to find Pokemon Cards
+a samll VueJs app to find Pokemon Cards
 
 You just have to enter a pokemon name in the input to see all the existing cards of that pokemon
 
